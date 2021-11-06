@@ -37,6 +37,11 @@ namespace Blog
                 //{
                 //    Console.WriteLine(tag.Name);
                 //}
+
+                //var tag = context.Tags
+                //    .AsNoTracking()
+                //    .FirstOrDefault(x => x.Id == 6);
+                //Console.WriteLine(tag?.Name);
             }
         }
     }
