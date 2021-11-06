@@ -1,5 +1,6 @@
 ﻿using Blog.Data;
 using Blog.Models;
+using System.Linq;
 
 namespace Blog
 {
@@ -9,8 +10,14 @@ namespace Blog
         {
            using(var context = new BlogDataContext())
             {
-                var tag = new Tag { Name = "ASP.NET", Slug = "aspnet2" };
-                context.Tags.Add(tag);
+                //var tag = new Tag { Name = "ASP.NET", Slug = "aspnet2" };
+                //context.Tags.Add(tag);
+                //context.SaveChanges();
+
+                var tag = context.Tags.FirstOrDefault(x => x.Id == 1);
+                tag.Name = ".NET";
+                tag.Slug = "dotnet";
+                context.Update(tag);
                 context.SaveChanges();
             }
         }
