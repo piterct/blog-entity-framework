@@ -1,5 +1,6 @@
 ﻿using Blog.Data;
 using Blog.Models;
+using Blog.Repository;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace Blog
     {
         static void Main(string[] args)
         {
+
             using (var context = new BlogDataContext())
             {
                 //var tag = new Tag { Name = "ASP.NET6", Slug = ".NET6" };
