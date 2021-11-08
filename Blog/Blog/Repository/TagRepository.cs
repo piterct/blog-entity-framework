@@ -1,5 +1,6 @@
 ﻿using Blog.Data;
 using Blog.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace Blog.Repository
@@ -20,7 +21,7 @@ namespace Blog.Repository
             return result == 0 ? false : true;
         }
 
-        public static bool RmoveTag(int id)
+        public static bool RemoveTag(int id)
         {
             int result = 0;
 
@@ -33,6 +34,18 @@ namespace Blog.Repository
             }
 
             return result == 0 ? false : true;
+        }
+
+        public static Tag GetTag(int id)
+        {
+
+            using (var context = new BlogDataContext())
+            {
+                return context.Tags
+                   .AsNoTracking()
+                    .FirstOrDefault(x => x.Id == id);
+            }
+
         }
 
     }
