@@ -21,20 +21,7 @@ namespace Blog
                 //context.Update(tag);
                 //context.SaveChanges();
 
-
-                //var tags = context.Tags
-                //    .AsNoTracking()
-                //    .ToList();
-
-                //foreach (var tag in tags)
-                //{
-                //    Console.WriteLine(tag.Name);
-                //}
-
-                //var tag = context.Tags
-                //    .AsNoTracking()
-                //    .FirstOrDefault(x => x.Id == 6);
-                //Console.WriteLine(tag?.Name);
+               
             }
         }
     }

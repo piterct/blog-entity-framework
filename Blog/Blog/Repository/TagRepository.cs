@@ -48,5 +48,18 @@ namespace Blog.Repository
 
         }
 
+        public static Tag UpdateTag(int id, string name, string slug)
+        {
+            using (var context = new BlogDataContext())
+            {
+                var tag = context.Tags.FirstOrDefault(x => x.Id == id);
+                tag.Name = name;
+                tag.Slug = slug;
+                context.Update(tag);
+                context.SaveChanges();
+                return tag;
+            }
+        }
+
     }
 }
