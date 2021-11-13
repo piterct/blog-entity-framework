@@ -51,6 +51,19 @@ namespace Blog
                 //{
                 //    Console.WriteLine($"{post.Title}  written by {post.Author?.Name} on {post.Category?.Name}");
                 //}
+
+
+                var post = context.Posts
+                      // .AsNoTracking()
+                      .Include(x => x.Author)
+                      .Include(x => x.Category)
+                      .OrderByDescending(x => x.LastUpdateDate)
+                     .FirstOrDefault();
+
+                post.Author.Name = "teste";
+
+                context.Posts.Update(post);
+                context.SaveChanges();
             }
 
             catch (Exception ex)
