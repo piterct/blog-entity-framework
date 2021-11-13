@@ -45,12 +45,12 @@ namespace Blog
 
                 //PostRepository.CreatePost(post);
 
-                var posts = PostRepository.GetPosts();
+                //var posts = PostRepository.GetPosts();
 
-                foreach (var post in posts)
-                {
-                    Console.WriteLine($"{post.Title}  writed by {post.Author?.Name}");
-                }
+                //foreach (var post in posts)
+                //{
+                //    Console.WriteLine($"{post.Title}  written by {post.Author?.Name} on {post.Category?.Name}");
+                //}
             }
 
             catch (Exception ex)
