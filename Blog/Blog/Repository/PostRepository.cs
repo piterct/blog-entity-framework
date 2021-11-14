@@ -33,5 +33,27 @@ namespace Blog.Repository
                      .ToList();
             }
         }
+
+
+        public static bool UpdateAuthorName(string authorName)
+        {
+            int result = 0;
+
+            using (var context = new BlogDataContext())
+            {
+                var post = context.Posts
+                     .Include(x => x.Author)
+                     .Include(x => x.Category)
+                     .OrderByDescending(x => x.LastUpdateDate)
+                    .FirstOrDefault();
+
+                post.Author.Name = authorName;
+
+                context.Posts.Update(post);
+                result = context.SaveChanges();
+            }
+
+            return result > 0;
+        }
     }
 }

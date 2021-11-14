@@ -53,17 +53,6 @@ namespace Blog
                 //}
 
 
-                var post = context.Posts
-                      // .AsNoTracking()
-                      .Include(x => x.Author)
-                      .Include(x => x.Category)
-                      .OrderByDescending(x => x.LastUpdateDate)
-                     .FirstOrDefault();
-
-                post.Author.Name = "teste";
-
-                context.Posts.Update(post);
-                context.SaveChanges();
             }
 
             catch (Exception ex)
