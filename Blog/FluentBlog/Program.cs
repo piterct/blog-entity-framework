@@ -20,7 +20,7 @@ namespace FluentBlog
 
             //var posts = await GetPosts(context);
 
-           var posts = PostRepository.GetPostComplete(context, 6, 9);
+            var posts = PostRepository.GetPosts(context, 0, 25);
 
             Console.WriteLine("Test");
         }
