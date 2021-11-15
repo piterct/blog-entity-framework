@@ -1,5 +1,6 @@
 ﻿using FluentBlog.Data;
 using FluentBlog.Models;
+using FluentBlog.Repository;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,21 +11,20 @@ namespace FluentBlog
 {
     internal class Program
     {
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
             using var context = new BlogDataContext();
 
-            var post = await context.Posts.ToListAsync();
-            var tausersgs = await context.Users.ToListAsync();
+            //var post = await context.Posts.ToListAsync();
+            //var tausersgs = await context.Users.ToListAsync();
 
-            var posts = await GetPosts(context);
+            //var posts = await GetPosts(context);
 
-            Console.WriteLine("Teste");
+           var posts = PostRepository.GetPostComplete(context, 6, 9);
+
+            Console.WriteLine("Test");
         }
 
-        public static async Task<IEnumerable<Post>> GetPosts(BlogDataContext context)
-        {
-           return await context.Posts.ToListAsync();
-        }
+       
     }
 }

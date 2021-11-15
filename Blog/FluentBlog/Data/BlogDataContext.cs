@@ -1,6 +1,7 @@
 ﻿using FluentBlog.Data.Mappings;
 using FluentBlog.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace FluentBlog.Data
 {
@@ -13,6 +14,7 @@ namespace FluentBlog.Data
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer("Server=.\\MSSQLSERVER2019;Database=Blog;User ID=local;Password=147258;");
+            options.LogTo(Console.WriteLine);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
