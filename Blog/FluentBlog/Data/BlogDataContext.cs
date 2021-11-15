@@ -12,7 +12,7 @@ namespace FluentBlog.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer("Server=.\\MSSQLSERVER2019;Database=Blog;User ID=local;Password=147258;");
+            options.UseSqlServer("Server=.\\MSSQLSERVER2019;Database=BlogMigration;User ID=local;Password=147258;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
