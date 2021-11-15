@@ -24,5 +24,10 @@ namespace FluentBlog.Repository
         {
             return context.Posts.AsNoTracking().Include(x => x.Author).Include(x => x.Category).Where(x => x.Author.Id == authorId && x.Category.Id == categoryId).ToList();
         }
+
+        public static List<Post> GetPostWithRole(BlogDataContext context, int authorId)
+        {
+            return context.Posts.AsNoTracking().Include(x => x.Author).ThenInclude(x=> x.Roles).Where(x => x.Author.Id == authorId ).ToList();
+        }
     }
 }
