@@ -20,7 +20,9 @@ namespace FluentBlog
 
             //var posts = await GetPosts(context);
 
-            var posts = PostRepository.GetPosts(context, 0, 25);
+           // var posts = PostRepository.GetPosts(context, 0, 25);
+
+            var postsWithRole = PostRepository.GetPostWithRole(context, 7);
 
             Console.WriteLine("Test");
         }
